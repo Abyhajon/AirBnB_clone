@@ -1,7 +1,7 @@
-**0x00. AirBnB clone - The console**
+# 0x00. AirBnB clone - The console #
 ![image](https://user-images.githubusercontent.com/99464926/217079018-0036479c-151a-431f-ba0d-21584479b53e.png)
 
-**Description of the project**
+## Description of the project ##
 
 This project sums up the implementation of four months of studies at the ALX-Holberton School - the fullstack software engineering program. The goal of the project is to deploy a replica of the Airbnb Website using our server. The final version of this project will have:
 
