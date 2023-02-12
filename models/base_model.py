@@ -3,10 +3,9 @@
 custom base class to define common attributes and methods for entire project
 '''
 
-
+import models
 import uuid
 from datetime import datetime
-
 
 class BaseModel:
     '''
@@ -23,13 +22,29 @@ class BaseModel:
         save(self): returns the dictionary values of the instance obj
 
     '''
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         '''
         public attributes initialization
+        args:
+            *args(args): arguments
+            **kwargs(dict): attribute values
         '''
+        dformat = '%Y-%m-%dT%H:%M:%S.%f'
+        
+        if kwargs is not None and len(kwargs) > 0:
+             for k, v in kwargs.items():
+                if k == "__class__":
+                    continue
+                elif k in ["created_at", "updated_at"]:
+                    setattr(self, k, datetime.fromisoformat(v))
+                else:
+                    setattr(self, k, v)
+
         self.id = str(uuid.uuid4())
         self.created_at = datetime.utcnow()
         self.updated_at = datetime.utcnow()
+
+        models.storage.new(self)
 
     def save(self):
         '''
@@ -37,6 +52,7 @@ class BaseModel:
         with the current datetime
         '''
         self.updated_at = datetime.utcnow()
+        models.storage.save()
 
     def to_dict(self):
         '''
