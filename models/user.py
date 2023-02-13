@@ -4,6 +4,7 @@ Defines the user class
 '''
 from models.base_model import BaseModel
 
+
 class User(BaseModel):
     '''
     defines a user
@@ -18,5 +19,3 @@ class User(BaseModel):
     password = ""
     first_name = ""
     last_name = ""
-
-
