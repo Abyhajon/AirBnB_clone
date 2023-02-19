@@ -6,8 +6,9 @@ from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """Inherits from BaseModel class
-     Attributes:
+    """
+    Inherits from BaseModel class
+    Attributes:
         city_id (str): City id
         user_id (str): User id
         name (str): name of the place.

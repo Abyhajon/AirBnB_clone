@@ -7,6 +7,7 @@ import models
 import uuid
 from datetime import datetime
 
+
 class BaseModel:
     '''
     Base for all the classes in the entire project
@@ -30,7 +31,6 @@ class BaseModel:
             **kwargs(dict): attribute values
         '''
         dformat = '%Y-%m-%dT%H:%M:%S.%f'
-        
         if kwargs is not None and len(kwargs) > 0:
              for k, v in kwargs.items():
                 if k == "__class__":
